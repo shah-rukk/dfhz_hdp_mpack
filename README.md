@@ -6,6 +6,12 @@
 #### Install Ambari From MOSGA RPMS:
 CENTOS7
 <pre>wget -O /etc/yum.repos.d/mosga.repo https://makeopensourcegreatagain.com/repos/centos/7/ambari/2.7.5.0/mosga-ambari.repo
+##if you face certificate issue, then us below changes.
+wget -O /etc/yum.repos.d/mosga.repo https://makeopensourcegreatagain.com/repos/centos/7/ambari/2.7.5.0/mosga-ambari.repo --no-check-certificate
+
+#and add below line in mosga.reop
+sslverify=0
+
 yum install ambari-server ambari-agent -y
 ambari-server setup -s
 ambari-server start
